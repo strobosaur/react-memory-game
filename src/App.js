@@ -30,6 +30,17 @@ function App() {
     <div className="App">
       <h1>React memory game</h1>
       <button onClick={shuffleCards}>New Game</button>
+
+      <div className="card-grid">
+        {cards.map(card => (
+          <div className="card" key={card.id}>
+            <div>
+              <img className="front" src={card.src} alt="card front" />
+              <img className="back" src="/img/cover.png" alt="" />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
