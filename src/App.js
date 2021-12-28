@@ -3,12 +3,12 @@ import './App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { "src": "/img/helmet-1.png" },
-  { "src": "/img/potion-1.png" },
-  { "src": "/img/ring-1.png" },
-  { "src": "/img/scroll-1.png" },
-  { "src": "/img/shield-1.png" },
-  { "src": "/img/sword-1.png" }
+  { "src": "/img/helmet-1.png", matched: false },
+  { "src": "/img/potion-1.png", matched: false },
+  { "src": "/img/ring-1.png", matched: false },
+  { "src": "/img/scroll-1.png", matched: false },
+  { "src": "/img/shield-1.png", matched: false },
+  { "src": "/img/sword-1.png", matched: false }
 ]
 
 function App() {
@@ -35,15 +35,31 @@ function App() {
   // COMPARE CHOSEN CARDS FUNCTION
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+
+      // CARDS MATCH?
       if (choiceOne.src === choiceTwo.src) {
-        console.log("It's a match!!!");
+        setCards(prevCards => {
+          // ITERATE THROUGH CARDS ARRAY
+          return prevCards.map(card => {
+            if (card.src === choiceOne.src) {
+              // RETURN CARD WITH MATCHED = TRUE
+              return { ...card, matched: true };
+            } else {
+              // RETURN CARD AS IS
+              return card;
+            }
+          })
+        })
+        // RESET TURN
         resetTurn();
       } else {
-        console.log("Cards don't match");
+        // RESET TURN
         resetTurn();
       }
     }
   }, [choiceOne, choiceTwo])
+
+  console.log(cards);
 
   // RESET TURN FUNCTION
   const resetTurn = () => {
