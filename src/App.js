@@ -24,6 +24,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   }
@@ -69,6 +71,11 @@ function App() {
     setDisabled(false);
   }
 
+  // START NEW GAME WHEN PAGE LOADS
+  useEffect(() => {
+    shuffleCards();
+  }, [])
+
   return (
     <div className="App">
       <h1>React memory game</h1>
@@ -85,6 +92,7 @@ function App() {
           />
         ))}
       </div>
+      <p>{turns}</p>
     </div>
   );
 }
