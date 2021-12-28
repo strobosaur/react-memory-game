@@ -3,16 +3,41 @@
 /* COLOR VARIABLES */
 :root {
   --bg-color01: #1b1523;
-  --txt-color01: #fff;
-  --deco-color01: #fff;
+  --bg-color02: #2c2238;
+  --txt-color01: #c23866;
+  --txt-color02: #fff;
+  --deco-color01: #c23866;
   --btn-color01: #c23866;
 }
 
 body {
   font-family: Raleway, sans-serif;
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  letter-spacing: 0.25em;
   text-align: center;
   background: var(--bg-color01);
   color: var(--txt-color01);
+}
+.counter {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: bold;
+}
+button {
+  background: none;
+  border: 2px solid var(--deco-color01);
+  padding: 12px 20px;
+  border-radius: 24px;
+  color: var(--deco-color01);
+  font-weight: bold;
+  letter-spacing: 0.125em;
+  cursor: pointer;
+  font-size: 1em;
+}
+button:hover {
+  background: var(--btn-color01);
+  border: 2px solid var(--btn-color01);
+  color: var(--txt-color02);
 }
