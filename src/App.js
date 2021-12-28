@@ -79,7 +79,6 @@ function App() {
   return (
     <div className="App">
       <h1>React memory game</h1>
-      <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
         {cards.map(card => (
@@ -92,7 +91,10 @@ function App() {
           />
         ))}
       </div>
-      <p>{turns}</p>
+      <div className="counter">
+        <button onClick={shuffleCards}>New Game</button>
+        <p>Turns: {turns}</p>
+      </div>
     </div>
   );
 }
