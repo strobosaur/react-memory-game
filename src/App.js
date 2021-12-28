@@ -51,10 +51,10 @@ function App() {
           })
         })
         // RESET TURN
-        resetTurn();
+        setTimeout(() => resetTurn(), 1000);
       } else {
         // RESET TURN
-        resetTurn();
+        setTimeout(() => resetTurn(), 1000);
       }
     }
   }, [choiceOne, choiceTwo])
@@ -79,6 +79,7 @@ function App() {
             key={card.id} 
             card={card}
             handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
           />
         ))}
       </div>
